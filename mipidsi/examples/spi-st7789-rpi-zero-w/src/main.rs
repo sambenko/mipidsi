@@ -16,7 +16,7 @@ Buttons:
 Read the README.md for more information.
 */
 
-use display_interface_spi::SPIInterfaceNoCS;
+use display_interface_spi::SPIInterface;
 use embedded_graphics::{
     mono_font::{ascii::FONT_10X20, MonoTextStyle},
     pixelcolor::Rgb565,
@@ -66,7 +66,7 @@ fn main() -> ExitCode {
 
     // SPI Display
     let spi = Spi::new(Bus::Spi0, SlaveSelect::Ss1, 60_000_000_u32, Mode::Mode0).unwrap();
-    let di = SPIInterfaceNoCS::new(spi, dc);
+    let di = SPIInterface::new(spi, dc);
     let mut delay = Delay::new();
     let mut display = Builder::st7789(di)
         // width and height are switched on purpose because of the orientation

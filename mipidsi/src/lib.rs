@@ -21,7 +21,7 @@
 //! ## Examples
 //! **For the ili9486 display, using the SPI interface with no chip select:**
 //! ```rust ignore
-//! use display_interface_spi::SPIInterfaceNoCS;    // Provides the builder for DisplayInterface
+//! use display_interface_spi::SPIInterface;    // Provides the builder for DisplayInterface
 //! use mipidsi::Builder;                           // Provides the builder for Display
 //! use embedded_graphics::pixelcolor::Rgb666;      // Provides the required color type
 //!
@@ -30,7 +30,7 @@
 //! /* Define the Reset digital output pin as the variable `rst` */
 //!
 //! // Create a DisplayInterface from SPI and DC pin, with no manual CS control
-//! let di = SPIInterfaceNoCS::new(spi, dc);
+//! let di = SPIInterface::new(spi, dc);
 //!
 //! // Create the ILI9486 display driver from the display interface and optional RST pin
 //! let mut display = Builder::ili9486(di)
